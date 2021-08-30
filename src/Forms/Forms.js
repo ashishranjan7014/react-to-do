@@ -14,7 +14,6 @@ const Forms = () => {
   const handleSubmit = () => {
     const { email, name, contact } = formData;
     if (email && name && contact) {
-      console.log(formData);
       dispatch(AddToList(formData));
     }
   };

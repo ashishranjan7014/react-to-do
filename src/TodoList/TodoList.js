@@ -1,9 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { GetToDoList } from '../Store/Selector/Selector';
+import RemoveFromList from '../TodoList/Store/Action/RemoveFromList';
 
 const ToDoList = () => {
   const { toDoList } = useSelector(GetToDoList);
+  const dispatch = useDispatch();
   return (
     <div>
       {toDoList && toDoList.length
@@ -13,6 +15,20 @@ const ToDoList = () => {
                 style={{ margin: '1px', border: '2px solid black' }}
                 key={index + email}
               >
+                <strong
+                  style={{
+                    float: 'right',
+                    cursor: 'pointer',
+                    padding: '5px',
+                    border: '1px solid red',
+                    color: 'red'
+                  }}
+                  onClick={() => {
+                    dispatch(RemoveFromList(email));
+                  }}
+                >
+                  X
+                </strong>
                 <div style={{ padding: '10px' }}>
                   <strong>Name : </strong> {name}
                 </div>
