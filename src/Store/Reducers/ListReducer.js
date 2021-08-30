@@ -13,10 +13,11 @@ const ListReducers = (state = defaultState, action) => {
       };
     }
     case ActionTypes.REMOVE_FROM_LIST: {
+      const { id } = payload;
       return {
         ...state,
-        toDoList: state.toDoList.filter(elem => {
-          if (elem.email !== payload) {
+        toDoList: state.toDoList.filter((elem, index) => {
+          if (elem.email + index !== id) {
             return elem;
           }
         })

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { GetToDoList } from '../Store/Selector/Selector';
-import RemoveFromList from '../TodoList/Store/Action/RemoveFromList';
+import RemoveFromList from '../Store/Action/RemoveFromList';
 
 const ToDoList = () => {
   const { toDoList } = useSelector(GetToDoList);
@@ -24,7 +24,7 @@ const ToDoList = () => {
                     color: 'red'
                   }}
                   onClick={() => {
-                    dispatch(RemoveFromList(email));
+                    dispatch(RemoveFromList(email + index));
                   }}
                 >
                   X
