@@ -1,3 +1,3 @@
 export const GetToDoList = store => {
-  console.log(store);
+  return store.ListReducer;
 };
