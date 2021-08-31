@@ -6,8 +6,8 @@ const FetchToDoList = () => {
     .then(res => {
       console.log(res);
     })
-    .catch(err => {
-      console.log(err);
+    .then(err => {
+      console.log(err); 
     });
   return {
     type: ActionTypes.FETCH_TO_DO_LIST
