@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import AddToList from '../Store/Action/AddToList';
 
 const Forms = () => {
+  let nameRef = useRef();
+  let emailRef = useRef();
+  let contactRef = useRef();
+
   const [formData, setFormData] = useState({
     email: '',
     name: '',
@@ -14,6 +18,7 @@ const Forms = () => {
   const handleSubmit = () => {
     const { email, name, contact } = formData;
     if (email && name && contact) {
+      console.log(nameRef, emailRef.current, contactRef.current);
       dispatch(AddToList(formData));
     }
   };
