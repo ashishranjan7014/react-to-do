@@ -1,6 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import AddToList from '../Store/Action/AddToList';
+import FetchToDoList from '../Store/Action/FetchToDoList';
 
 const Forms = () => {
   let nameRef = useRef();
@@ -29,6 +30,11 @@ const Forms = () => {
       [name]: value
     });
   };
+
+  useEffect(() => {
+    dispatch(FetchToDoList());
+  }, []);
+
   return (
     <div>
       <div>
