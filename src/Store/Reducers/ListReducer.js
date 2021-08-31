@@ -11,6 +11,7 @@ const ListReducers = (state = defaultState, action) => {
       if (!state.isEmailExists.includes(payload.email)) {
         return {
           ...state,
+          isEmailExists: [...state.isEmailExists, payload.email],
           toDoList: [...state.toDoList, payload]
         };
       } else if (state.isEmailExists.includes(payload.email)) {
