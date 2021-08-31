@@ -2,7 +2,7 @@ import ActionTypes from '../Constant/Constant';
 import Axios from 'axios';
 
 const FetchToDoList = () => {
-  Axios.get('https://node-a9gqtv--8080.local.webcontainer.io/')
+  fetch('https://node-a9gqtv--8080.local.webcontainer.io/')
     .then(res => {
       console.log(res);
     })
