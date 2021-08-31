@@ -1,5 +1,19 @@
 import ActionTypes from '../Constant/Constant';
 
+const UpdateList = (arr, obj) => {
+  let tempArr = arr;
+  if (tempArr && tempArr.length) {
+    tempArr.map((e, i, a) => {
+      if (e.email === obj.email) {
+        a[i].email = obj.email;
+        a[i].name = obj.name;
+        a[i].contact = obj.contact;
+      }
+    });
+    return tempArr;
+  }
+};
+
 const defaultState = {
   toDoList: [],
   isEmailExists: []
@@ -15,17 +29,9 @@ const ListReducers = (state = defaultState, action) => {
           toDoList: [...state.toDoList, payload]
         };
       } else if (state.isEmailExists.includes(payload.email)) {
-        let toDoList = state.toDoList;
-        toDoList.map((e, i, a) => {
-          if (e.email === payload.email) {
-            a[i].email = payload.email;
-            a[i].name = payload.name;
-            a[i].contact = payload.contact;
-          }
-        });
         return {
           ...state,
-          toDoList
+          toDoList: UpdateList(state.toDoList, payload)
         };
       }
     }
