@@ -18,6 +18,7 @@ const Forms = () => {
   const handleSubmit = () => {
     const { email, name, contact } = formData;
     if (email && name && contact) {
+      console.log(nameRef.current.attributes);
       dispatch(AddToList(formData));
     }
   };
@@ -51,6 +52,7 @@ const Forms = () => {
           name="name"
           value={formData.name}
           onChange={handleChange}
+          ref={nameRef}
         />
       </div>
       <div>
