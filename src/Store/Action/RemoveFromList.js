@@ -1,10 +1,11 @@
 import ActionType from '..//Constant/Constant';
 
-const RemoveFromList = id => {
+const RemoveFromList = (id, email) => {
   return {
     type: ActionType.REMOVE_FROM_LIST,
     payload: {
-      id
+      id,
+      email
     }
   };
 };

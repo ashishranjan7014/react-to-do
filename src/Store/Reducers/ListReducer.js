@@ -36,11 +36,16 @@ const ListReducers = (state = defaultState, action) => {
       }
     }
     case ActionTypes.REMOVE_FROM_LIST: {
-      const { id } = payload;
+      const { id, email } = payload;
       return {
         ...state,
         toDoList: state.toDoList.filter((elem, index) => {
           if (elem.email + index !== id) {
+            return elem;
+          }
+        }),
+        isEmailExists: state.isEmailExists.filter((elem, index) => {
+          if (elem !== email) {
             return elem;
           }
         })

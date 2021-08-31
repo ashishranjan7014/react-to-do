@@ -24,7 +24,7 @@ const ToDoList = () => {
                     color: 'red'
                   }}
                   onClick={() => {
-                    dispatch(RemoveFromList(email + index));
+                    dispatch(RemoveFromList(email + index, email));
                   }}
                 >
                   X
